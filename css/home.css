@@ -1,0 +1,132 @@
+.container{
+    /* position: relative;
+    width: 100%;
+    max-width: 400px; */
+}
+.btn_dangnhap_dangky{
+    position: absolute;
+    top: 68%;
+    left: 33%;
+    transform: translate(-50%,-50%);
+}
+.text_home{
+    padding: 50px;
+}
+.tenDABDS{
+    display: flex;
+    flex-wrap: wrap;
+}
+.img-DABDS{
+    padding: 5px 20px;
+    position: relative;
+    display: inline-block; 
+}
+.tenduan{
+    background-color: #50B848;
+    width: 30%;
+    color: white;
+    padding: 12px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 310px;
+    
+}
+.card__content {
+    position: absolute;
+    z-index: 999;
+    margin: 10px auto;
+    left: 0;
+    right: 0;        
+    text-align: center;
+    top: 40%; /* Adjust this value to move the positioned div up and down */
+    background: rgba(0, 0, 0, 0.8);
+    font-family: Arial,sans-serif;
+    color: #fff;
+    width: 60%; /* Set the width of the positioned div */
+  }
+.motaBDS{
+    display:flex;
+    font-size: 12px;
+}
+.item_motaBDS{
+    text-align: center;
+    padding: 5px;
+}
+.giaBDS{
+    background-color: #50B848;
+    width: 30%;
+    color: white;
+    padding: 12px;
+    width: 310px;
+}
+.img-DABDS2{
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 10px 20px;
+    position: relative;
+    display: inline-block;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+.img-DABDS2 img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.chaomung{
+    background-image: url(../img/modern-apartment-architecture.jpg);
+    /* background-size: cover; */
+    background-size: 100% 100%;
+    width: 100%;
+}
+.text-welcome{
+    color:white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px 0;
+}
+.text-welcome h2{
+    padding: 15px 10px;
+}
+.quytrinh{
+    display:flex;
+    padding: 50px 0;
+}
+.txt-quytrinh{
+    margin: 10px 31px;
+    padding: 0 10px;
+}
+.text-green{
+    color: #50B848;
+    font-weight: bold;
+}
+.img-DABDS3{
+    margin: 10px 50px;
+    position: relative;
+    display: inline-block;
+}
+.card__content2{
+    position: absolute;
+    left: 0%;
+    right: 0;
+    text-align: center;
+    top: 89%;
+    background: rgba(0, 0, 0, 0.5);
+    font-family: Arial,sans-serif;
+    color: #fff;
+    width: 100%;
+  }
+.thueBDS{
+    background-color: #50B848;
+    color: white;
+    position: absolute;
+    z-index: 999;
+    margin: 10px auto;
+    left: 80%;
+    right: 0;
+    top: 1%;
+    clip-path: polygon(35% -42%, 244% 60%, 36% 133%, 4% 50%);
+    width: 20%;
+}
+
+.ndBDS{
+    font-size:18px;
+    margin: 10px 20px;
+}
