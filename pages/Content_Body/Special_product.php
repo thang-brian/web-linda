@@ -64,7 +64,7 @@ $query = mysqli_query($connect, $sql);
 
     <div style="clear: both;"></div>
 
-    <?php include_once "component/Content_Body/Search.php" ?>
+    <?php include_once "pages/Content_Body/Search.php" ?>
 
     <div style="clear: both;"></div>
 

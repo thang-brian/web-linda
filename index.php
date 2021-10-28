@@ -21,9 +21,9 @@
 <body>
 
     <?php
-    include "component/Header.php";
+    include "pages/Header.php";
     include "public/main.php";
-    include "component/Footer.php";
+    include "pages/Footer.php";
     include "connecting/script.php";
     ?>
 
