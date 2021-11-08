@@ -4,7 +4,7 @@ session_start();
 include "../connecting/Ketnoi.php";
 
 if (isset($_POST["dangnhap"])) {
-
+    unset($_SESSION['message']);
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -23,7 +23,7 @@ if (isset($_POST["dangnhap"])) {
                     header('location: ../public/TrangQuanTri.php');
                 }
                 else{
-                    header('location: ../public/TrangChu.php');
+                    header('location: ../index.php');
                 }
             } else {
                 $alert = '<center class="text-danger">Mật khẩu không chính xác !</center>';
@@ -36,23 +36,30 @@ if (isset($_POST["dangnhap"])) {
     }
 }
 if (isset($_POST["dangky"])) {
+    unset($_SESSION['message']);
     $alert = "";
-    if (isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["password"])) {
+    if (isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]) && isset($_POST["phonenumber"])) {
+        $fullname = $_POST["fullname"];
+        $email = $_POST["email"];
+        $phonenumber = $_POST["phonenumber"];
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $address = $_POST["address"];
-        $birthday = $_POST["birthday"];
-        $fullname = $_POST["fullname"];
-        $sex = $_POST["sex"];
+        $repassword = $_POST["repassword"];
+        $loai = $_POST["loai"];
         $getUser = "SELECT username FROM danhsach_kh WHERE username = '$username'";
         if (mysqli_num_rows(mysqli_query($connect, $getUser)) > 0) {
             $alert = '<center class="text-danger">Tài khoản đã tồn tại !</center>';
-        } else {
+        }elseif($password === $repassword){
             $pw_hash = password_hash($password, PASSWORD_DEFAULT);
-            $update = "INSERT INTO danhsach_kh (username, password, role, address, fullname, birthday, sex) 
-            VALUES ('$username', '$pw_hash', '1', '$address', '$fullname', '$birthday', '$sex')";
+            $update = "INSERT INTO danhsach_kh (username,email,phonenumber,password, role, fullname) 
+            VALUES ('$username', '$email', '$phonenumber', '$pw_hash', '$loai', '$fullname')";
             $query = mysqli_query($connect, $update);
+            $alert = '<center class="text-success">Đã đăng ký thành công!</center>';
+            $_SESSION['message'] = $alert;
             header('location: ../login/Dangnhap.php');
+
+        } else {
+            $alert = '<center class="text-danger">Nhập lại mật khẩu chưa trùng!</center>';
         }
     } else {
         $alert = '<center class="text-danger col-sm-12">Vui lòng nhập đủ thông tin !</center>';
@@ -138,6 +145,11 @@ if (isset($_POST["dangky"])) {
                             <a href="Dangki.php">Bạn chưa có tài khoản ?</a>
                         </div> -->
                     </div>
+                    <?php 
+                    if(isset($_SESSION['message'])){
+                        echo $_SESSION['message'];
+                      }
+                    ?>
                     <div class="form-group">
                         <button name="dangnhap" type="submit" class="btn btn-success rounded submit p-3 px-5">Đăng nhập</button>
                     </div>
@@ -155,61 +167,42 @@ if (isset($_POST["dangky"])) {
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input name="username" type="text" id="email" placeholder="Tên tài Khoản" class="form-control">
+                                <input name="email" type="email" id="email" placeholder="Email" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input name="password" type="password" id="password" placeholder="Mật khẩu" class="form-control">
+                                <input name="phonenumber" type="text" id="birthDate" placeholder="Nhập số điện thoại" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input name="birthday" type="date" id="birthDate" class="form-control">
+                                <input name="username" type="text" id="email" placeholder="Tên tài Khoản" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <select name="address" id="country" class="form-control">
-                                    <option>Việt Nam</option>
-                                    <option>Afghanistan</option>
-                                    <option>Bahamas</option>
-                                    <option>Cambodia</option>
-                                    <option>Denmark</option>
-                                    <option>Ecuador</option>
-                                    <option>Gabon</option>
-                                    <option>Haiti</option>
+                                <input name="password" type="password" id="password" placeholder="Mật khẩu" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input name="repassword" type="password" id="password" placeholder="Nhập lại mật khẩu" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <select name="loai" id="country" class="form-control" required>
+                                    <option value="2">Người mua</option>
+                                    <option value="1">Người bán</option>
                                 </select>
                             </div>
-                        </div> <!-- /.form-group -->
-                        <div class="form-group">
-                            <label class="control-label col-sm-6">Giới tính</label>
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input name="sex" type="radio" id="femaleRadio" value="Female">Nam
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input name="sex" type="radio" id="maleRadio" value="Male">Nữ
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input name="sex" type="radio" id="uncknownRadio" value="Unknown">Khác
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- /.form-group -->
                         <div class="form-group">
                             <?= $alert ?? '' ?>
                             <div class="col-sm-12 col-sm-offset-3">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"> Tôi đồng ý với các điều khoản sử dụng <a href="#">Tìm hiểu thêm</a>
+                                        <input type="checkbox" required> Tôi đồng ý với các điều khoản sử dụng <a href="#">Tìm hiểu thêm</a>
                                     </label>
                                 </div>
                             </div>

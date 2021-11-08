@@ -1,7 +1,10 @@
 <footer>
-    <?php 
-    include_once "pages/Content_Body/News.php";
-    include_once "pages/Content_Body/List_address.php"
+    <?php
+    if(empty($_GET['quanly']) ){
+        
+        include_once "pages/Content_Body/News.php";
+        include_once "pages/Content_Body/List_address.php";
+    } 
     ?>
     <div class="container bgrfooter pb-5">
         <div class="row">

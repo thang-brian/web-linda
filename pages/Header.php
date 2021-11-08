@@ -10,7 +10,7 @@
             <nav class="row">
                 <?php
 
-                if (isset($_SESSION["hoTen"])) {
+                if (isset($_SESSION["quyen"]) && $_SESSION["quyen"] != 0) {
                     
                 ?>
                     <div class="col-md-auto mgl-25">
@@ -18,12 +18,19 @@
                             Xin chào, <?= $_SESSION["hoTen"] ?> ▼
                         </a>
                         <div class="option-logout-toggle">
+                            <a href="index.php?quanly=quanly">Quản lý</a>
                             <a href="login/Dangxuat.php">Đăng xuất</a>
                             <a href="login/Doimatkhau.php">Đổi mật khẩu</a>
                         </div>
                     </div>
                 <?php
-                } else {
+                }else if(isset($_SESSION["quyen"]) && $_SESSION["quyen"] == 0){
+                ?>
+                <div class="col-md-auto mgl-25">
+                    <a href="public/TrangQuanTri.php">Đi đến trang Quản lý (Admin)</a>
+                </div>
+                <?php
+                }else {
                 ?>
                     <!-- <div class="col-md-auto mgl-25">
                         <a class="w-100" href="../login/Dangki.php">Đăng ký</a>
@@ -35,10 +42,10 @@
                 }
                 ?>
                 <div class="col-md-auto mgl-25">
-                    <a href="#">Tin tức</a>
+                    <a href="index.php?quanly=tintuc">Tin tức</a>
                 </div>
                 <div class="col-md-auto mgl-25">
-                    <a href="#">Tuyển dụng</a>
+                    <a href="index.php?quanly=tuyendung">Tuyển dụng</a>
                 </div>
                 <div class="col-md-auto">
                     <a href="#">Việt Nam</a>

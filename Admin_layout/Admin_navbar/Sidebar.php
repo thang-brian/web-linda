@@ -1,9 +1,9 @@
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="../img/logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Trang Quản trị</span>
+        <img src="../img/logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" >
     </a>
 
     <!-- Sidebar -->
@@ -14,7 +14,8 @@
                 <img src="../framework/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block set_admin"><?= $_SESSION["hoTen"] . " ⌵ " ?></a>
+                <a href="#" class="d-block set_admin"><?= $_SESSION["hoTen"] . " ⌵ " ?>
+                </a>
                 <div class="option-logout-toggle-admin">
                     <a href="../login/Dangxuat.php">Đăng xuất</a>
                     <a href="../login/Doimatkhau.php">Đổi mật khẩu</a>
@@ -117,19 +118,25 @@
 
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+                        <i class="fas fa-briefcase"></i>
                         <p>
-                            UI Elements
+                            Việc làm
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="../public/TrangQuanTri.php?Admin=career_show" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>General</p>
+                                <p>Danh sách việc làm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../public/TrangQuanTri.php?Admin=career_add" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm việc làm</p>
                             </a>
                         </li>
 
@@ -170,7 +177,7 @@
                         </li>
 
                     </ul>
-                </li> -->
+                </li>
 
 
             </ul>

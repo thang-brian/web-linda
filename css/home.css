@@ -130,3 +130,49 @@
     font-size:18px;
     margin: 10px 20px;
 }
+.gb_9a {
+    margin: 20px;
+    white-space: nowrap;
+}
+.gb_Ha {
+    border: none;
+    margin-right: 6px;
+    vertical-align: top;
+    height: 80px;
+    width: 80px;
+}
+.gb_eb {
+    -webkit-border-radius: 50%;
+}
+.gb_k .gb_ab {
+    margin-bottom: 10px;
+    position: relative;
+    height: 86px;
+    width: 86px;
+}
+.gb_k .gb_ib {
+    background: #fff;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    overflow: visible;
+    height: 32px;
+    width: 32px;
+}
+.gb_k .gb_ab, .gb_k .gb_bb {
+    display: block;
+    text-align: center;
+}
+.gb_jb {
+        /* bottom: 0; */
+    /* -webkit-box-shadow: 0 1px 1px 0 rgb(65 69 73 / 30%), 0 1px 3px 1px rgb(65 69 73 / 15%); */
+    box-shadow: 0 1px 1px 0 rgb(65 69 73 / 30%), 0 1px 1px 2px rgb(65 69 73 / 15%);
+    margin: 0px 2.5px 3px;
+    outline: 0;
+    position: absolute;
+    right: 68%;
+    top: 220px;
+    height: 26px;
+    width: 26px;
+    text-align: center;
+}

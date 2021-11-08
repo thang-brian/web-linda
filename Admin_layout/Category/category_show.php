@@ -1,4 +1,4 @@
-https://www.linda365.com/<?php
+<?php
 ob_start();
 
 if (isset($_GET['page_category'])) {
@@ -39,7 +39,7 @@ for ($i = 1; $i <= $totalPage; $i++) {
         $prevPage = '
         <li class="page-item">
         <a class="page-link" 
-        href="https://www.linda365.com/TheGioiBDS/public/TrangQuanTri.php?Admin=category_show&page_category='.$x.'" 
+        href="../public/TrangQuanTri.php?Admin=category_show&page_category='.$x.'" 
         aria-label="Previous">
         <span aria-hidden="true"><i class="fas fa-angle-left"></i></span>
         </a>
@@ -48,13 +48,13 @@ for ($i = 1; $i <= $totalPage; $i++) {
         $nextPage = '
         <li class="page-item">
         <a class="page-link" 
-        href="https://www.linda365.com/TheGioiBDS/public/TrangQuanTri.php?Admin=category_show&page_category='.$y.'" 
+        href="../TheGioiBDS/public/TrangQuanTri.php?Admin=category_show&page_category='.$y.'" 
         aria-label="Next">
         <span aria-hidden="true"><i class="fas fa-angle-right"></i></span>
         </a>
         </li>';
     } else {
-        $listPage .= '<li class="page-item"><a class="page-link" href="https://www.linda365.com/TheGioiBDS/public/TrangQuanTri.php?Admin=product_show&page_category=' . $i . '">' . $i . '</a></li>';
+        $listPage .= '<li class="page-item"><a class="page-link" href="../TheGioiBDS/public/TrangQuanTri.php?Admin=product_show&page_category=' . $i . '">' . $i . '</a></li>';
         
     }
 }

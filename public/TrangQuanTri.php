@@ -46,6 +46,19 @@ switch ($_GET['Admin']) {
         include_once "../Admin_layout/Category/category_fix.php";
         break;
 
+    case "career_show":
+        include_once "../Admin_layout/Career/career_show.php";
+        break;
+        
+    case "career_add":
+        include_once "../Admin_layout/Career/career_add.php";
+        break;
+    case "career_fix":
+        include_once "../Admin_layout/Career/career_fix.php";
+        break;
+    case "career_del":
+        include_once "../Admin_layout/Career/career_del.php";
+        break;
     default:
         include_once "../Admin_layout/manage_main.php";
         break;
