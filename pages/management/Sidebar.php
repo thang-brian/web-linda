@@ -3,7 +3,7 @@
     <div class="flex">
         <div class="gb_9a">
             <div class="gb_ab">
-                <img class="gb_Ha gbip gb_eb" src="https://lh3.googleusercontent.com/ogw/ADea4I7nUYlZKh_F1sjpKutmTnfxzPGiANlch5XU2ZBoOQ=s83-c-mo" title="Hồ sơ" alt="" aria-hidden="true" srcset="https://lh3.googleusercontent.com/ogw/ADea4I7nUYlZKh_F1sjpKutmTnfxzPGiANlch5XU2ZBoOQ=s83-c-mo 1x, https://lh3.googleusercontent.com/ogw/ADea4I7nUYlZKh_F1sjpKutmTnfxzPGiANlch5XU2ZBoOQ=s192-c-mo 2x ">
+                <img class="gb_Ha gbip gb_eb" src="" title="Hồ sơ" alt="" aria-hidden="true" srcset="">
                 <div class="gb_ib gb_eb">
                     <a class="gb_jb gb_Lf gb_eb gb_Qf" type="button" aria-label="Thay đổi ảnh hồ sơ." class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     <svg class="gb_kb" enable-background="new 0 0 24 24" focusable="false" height="26" viewBox="0 0 24 24" width="18" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -47,8 +47,8 @@
                 <i class="fas fa-list"></i> Quản lý tin đăng
             </a>
             <div class="collapse" id="collapse1">
-                <a class="dropdown-item" href="index.php?quanly=dangtin">Đăng tin</a>
-                <a class="dropdown-item" href="#">Tin bán & cho thuê</a>
+                <a class="dropdown-item" href="index.php?quanly=management&page=dangtin">Đăng tin</a>
+                <a class="dropdown-item" href="index.php?quanly=management&page=tinban">Tin bán & cho thuê</a>
                 <a class="dropdown-item" href="#">Tin cần mua & cần thuê</a>
             </div>
             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">

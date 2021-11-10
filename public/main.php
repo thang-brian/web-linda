@@ -16,10 +16,9 @@
         include("public/career.php");
     }elseif($tam=='quanly'){
         include "public/Trangquanly.php";
-    }elseif($tam=='dangtin'){
+    }elseif($tam=='management'){
         include "pages/management/Header.php";
-        include "pages/management/Main.php";
-        
+        include "pages/management/Main.php";   
     }else{
         include "pages/Header.php";
         include("public/TrangChu.php");

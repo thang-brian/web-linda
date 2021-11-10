@@ -120,12 +120,25 @@
                     </small>
                   </div>
                   <div class="form-group">
-                    <label for="exampleFormControlFile1">Đăng hình ảnh</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".jpg,.png,.pdf" multiple>
+                    <label for="file-ip-1">Đăng hình ảnh</label>
+                    <div class="preview">
+                      <img id="file-ip-1-preview" style="width:100%;display:none;margin-bottom:30px;">
+                    </div>
+                    <input type="file" class="form-control-file" id="file-ip-1" accept=".jpg,.png,.pdf " onchange="showPreview(event)" multiple>
                     <small id="emailHelp" class="form-text text-muted">Đăng tối đa 15 ảnh với tài khoản thường và 25 ảnh với tài khoản VIP</small>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <script>
+                    function showPreview(event){
+                    if(event.target.files.length > 0){
+                      var src = URL.createObjectURL(event.target.files[0]);
+                      var preview = document.getElementById("file-ip-1-preview");
+                      preview.src = src;
+                      preview.style.display = "block";
+                    }
+                  }
+                </script>
               </form>
             </div>
             <div class="col">
@@ -166,7 +179,7 @@
               <p>Vị trí trên bản đồ</p>
               <div id="map"></div>
               <script
-              eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1="3://0.4.5/0/6/7?8=9&a=b&c=&d=e&f=2"g',17,17,'maps|src||https|googleapis|com|api|js|key|AIzaSyBhKqTXCGloRKwO8USX1ImIDtqwOJPUsho|callback|initMap|libraries|v|weekly|channel|async'.split('|'),0,{}))
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhKqTXCGloRKwO8USX1ImIDtqwOJPUsho&callback=initMap&libraries=&v=weekly&channel=2"async
               ></script>
             </div>
             </div>
@@ -287,6 +300,95 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="CGRadioOptions" id="CGRadio2" value="option2">
               <label class="form-check-label" for="CGRadio2">Căn thường</label>
+            </div>
+            </div>
+            <label for="inputEmail3" class=" col-form-label">Hướng cửa chính</label>
+            <div class="container">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio1" value="option1">
+              <label class="form-check-label" for="CCRadio1">Đông</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio2" value="option2">
+              <label class="form-check-label" for="CCRadio2">Tây Bắc</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio3" value="option2">
+              <label class="form-check-label" for="CCRadio3">Tây</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio4" value="option2">
+              <label class="form-check-label" for="CCRadio4">Tây Nam</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio5" value="option2">
+              <label class="form-check-label" for="CCRadio5">Nam</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio6" value="option2">
+              <label class="form-check-label" for="CCRadio6">Đông Bắc</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio7" value="option2">
+              <label class="form-check-label" for="CCRadio7">Bắc</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CCRadioOptions" id="CCRadio8" value="option2">
+              <label class="form-check-label" for="CCRadio8">Đông</label>
+            </div>
+          </div>
+          <label for="inputEmail3" class=" col-form-label">Hướng ban công</label>
+            <div class="container">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio1" value="option1">
+              <label class="form-check-label" for="BCRadio1">Đông</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio2" value="option2">
+              <label class="form-check-label" for="BCRadio2">Tây Bắc</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio3" value="option2">
+              <label class="form-check-label" for="BCRadio3">Tây</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio4" value="option2">
+              <label class="form-check-label" for="BCRadio4">Tây Nam</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio5" value="option2">
+              <label class="form-check-label" for="BCRadio5">Nam</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio6" value="option2">
+              <label class="form-check-label" for="BCRadio6">Đông Bắc</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio7" value="option2">
+              <label class="form-check-label" for="BCRadio7">Bắc</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="BCRadioOptions" id="BCRadio8" value="option2">
+              <label class="form-check-label" for="BCRadio8">Đông</label>
+            </div>
+          </div>
+          <label for="inputEmail3" class=" col-form-label">Pháp lý</label>
+            <div class="container">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="PLRadioOptions" id="PLRadio1" value="option1">
+              <label class="form-check-label" for="PLRadio1">Có sổ hồng</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="PLRadioOptions" id="PLRadio2" value="option2">
+              <label class="form-check-label" for="PLRadio2">Hợp đồng mua bán</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="PLRadioOptions" id="PLRadio3" value="option2">
+              <label class="form-check-label" for="PLRadio3">Văn bản chuyển nhượng</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="PLRadioOptions" id="PLRadio4" value="option2">
+              <label class="form-check-label" for="PLRadio4">Khác</label>
             </div>
           </div>
         </div>
