@@ -11,7 +11,7 @@
         include "pages/management/page/dangtin.php";
       }else if(isset($_GET["page"]) && $_GET["page"] == 'tinban')
       {
-        include "pages/management/page/tinban/index.html";
+        include "pages/management/page/tinban/tinban.php";
       }
       ?>
     </div>
