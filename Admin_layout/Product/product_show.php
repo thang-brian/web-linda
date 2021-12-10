@@ -73,6 +73,7 @@ for ($i = 1; $i <= $totalPage; $i++) {
             <th>Tên sản phẩm</th>
             <th>Số lượng</th>
             <th>Giá</th>
+            <th>Loại</th>
             <th>Top</th>
             <th>Ảnh mô tả</th>
             <th>Chỉnh sửa</th>
@@ -87,6 +88,7 @@ for ($i = 1; $i <= $totalPage; $i++) {
                 <td><?= $row['Name'] ?></td>
                 <td><?= $row['Status'] ?></td>
                 <td><?= $row['Price'] ?> ₫</td>
+                <td><?= $row['loai'] ?></td>
                 <td><?= $row['Top'] ?></td>
                 <td><img class="admin_img_mota" src="../img/<?= $row['Image'] ?>" alt="product"></td>
                 <td>

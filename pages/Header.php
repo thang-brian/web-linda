@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     
 ?>
 
@@ -77,24 +77,27 @@
     </div>
 
     <!-- header-3 -->
+    
     <div class="container header3">
-        <div class="row">
-            <div class="tog-bar">
-                <i class="fas fa-bars"></i>
-            </div>
-            <a style="color: black;" href="index.php"><i class="fas fa-home"></i></a>
-            <nav class="house-world">
-                <a href="index.php?quanly=nhadat">Nhà đất Việt Nam</a>
-                <a href="#">Nhà đất Mỹ</a>
-                <a href="#">Nhà đất Úc</a>
-                <a href="#">Nhà đất Canada</a>
-                <a href="#">Nhà đất Pháp</a>
-                <a href="#">Nhà đất Nhật Bản</a>
-                <a href="#">Nhà đất Hàn Quốc</a>
-                <a href="#">Nhà đất Trung Quốc</a>
-            </nav>
-
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.php?quanly=nhadat">Nhà đất Việt Nam</a>
+        <a class="nav-item nav-link"  href="#">Nhà đất Mỹ</a>
+        <a class="nav-item nav-link"  href="#">Nhà đất Úc</a>
+        <a class="nav-item nav-link"  href="#">Nhà đất Canada</a>
+        <a class="nav-item nav-link" href="#">Nhà đất Pháp</a>
+        <a class="nav-item nav-link" href="#">Nhà đất Nhật Bản</a>
+        <a class="nav-item nav-link" href="#">Nhà đất Hàn Quốc</a>
+        <a class="nav-item nav-link" href="#">Nhà đất Trung Quốc</a>
+    </div>
+  </div>
+</nav>
+       
     </div>
 
 </header>

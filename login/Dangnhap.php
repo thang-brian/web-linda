@@ -1,70 +1,70 @@
 <?php
 
 session_start();
-include "../connecting/Ketnoi.php";
+// include "../connecting/Ketnoi.php";
 
-if (isset($_POST["dangnhap"])) {
-    unset($_SESSION['message']);
-    if (isset($_POST["username"]) && isset($_POST["password"])) {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $alert = "";
-        $getPass = "SELECT password, fullname, role FROM danhsach_kh WHERE username = '$username'";
-        $queryPass = mysqli_query($connect, $getPass);
-        $rowPass = mysqli_fetch_assoc($queryPass);
+// if (isset($_POST["dangnhap"])) {
+//     unset($_SESSION['message']);
+//     if (isset($_POST["username"]) && isset($_POST["password"])) {
+//         $username = $_POST["username"];
+//         $password = $_POST["password"];
+//         $alert = "";
+//         $getPass = "SELECT password, fullname, role FROM danhsach_kh WHERE username = '$username'";
+//         $queryPass = mysqli_query($connect, $getPass);
+//         $rowPass = mysqli_fetch_assoc($queryPass);
 
-        if (mysqli_num_rows($queryPass) > 0) {
+//         if (mysqli_num_rows($queryPass) > 0) {
 
-            if (password_verify($password, $rowPass["password"])) {
+//             if (password_verify($password, $rowPass["password"])) {
 
-                $_SESSION["hoTen"] = $rowPass["fullname"];
-                $_SESSION["quyen"] = $rowPass["role"];
-                if($rowPass["role"] == 0){
-                    header('location: ../public/TrangQuanTri.php');
-                }
-                else{
-                    header('location: ../index.php');
-                }
-            } else {
-                $alert = '<center class="text-danger">Mật khẩu không chính xác !</center>';
-            }
-        } else {
-            $alert = '<center class="text-danger">Tài khoản không chính xác !</center>';
-        }
-    } else {
-        $alert = '<center class="text-danger">MờI nhập đầy đủ thông tin</center>';
-    }
-}
-if (isset($_POST["dangky"])) {
-    unset($_SESSION['message']);
-    $alert = "";
-    if (isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]) && isset($_POST["phonenumber"])) {
-        $fullname = $_POST["fullname"];
-        $email = $_POST["email"];
-        $phonenumber = $_POST["phonenumber"];
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $repassword = $_POST["repassword"];
-        $loai = $_POST["loai"];
-        $getUser = "SELECT username FROM danhsach_kh WHERE username = '$username'";
-        if (mysqli_num_rows(mysqli_query($connect, $getUser)) > 0) {
-            $alert = '<center class="text-danger">Tài khoản đã tồn tại !</center>';
-        }elseif($password === $repassword){
-            $pw_hash = password_hash($password, PASSWORD_DEFAULT);
-            $update = "INSERT INTO danhsach_kh (username,email,phonenumber,password, role, fullname) 
-            VALUES ('$username', '$email', '$phonenumber', '$pw_hash', '$loai', '$fullname')";
-            $query = mysqli_query($connect, $update);
-            $alert = '<center class="text-success">Đã đăng ký thành công!</center>';
-            $_SESSION['message'] = $alert;
-            header('location: ../login/Dangnhap.php');
+//                 $_SESSION["hoTen"] = $rowPass["fullname"];
+//                 $_SESSION["quyen"] = $rowPass["role"];
+//                 if($rowPass["role"] == 0){
+//                     header('location: ../public/TrangQuanTri.php');
+//                 }
+//                 else{
+//                     header('location: ../index.php');
+//                 }
+//             } else {
+//                 $alert = '<center class="text-danger">Mật khẩu không chính xác !</center>';
+//             }
+//         } else {
+//             $alert = '<center class="text-danger">Tài khoản không chính xác !</center>';
+//         }
+//     } else {
+//         $alert = '<center class="text-danger">MờI nhập đầy đủ thông tin</center>';
+//     }
+// }
+// if (isset($_POST["dangky"])) {
+//     unset($_SESSION['message']);
+//     $alert = "";
+//     if (isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]) && isset($_POST["phonenumber"])) {
+//         $fullname = $_POST["fullname"];
+//         $email = $_POST["email"];
+//         $phonenumber = $_POST["phonenumber"];
+//         $username = $_POST["username"];
+//         $password = $_POST["password"];
+//         $repassword = $_POST["repassword"];
+//         $loai = $_POST["loai"];
+//         $getUser = "SELECT username FROM danhsach_kh WHERE username = '$username'";
+//         if (mysqli_num_rows(mysqli_query($connect, $getUser)) > 0) {
+//             $alert = '<center class="text-danger">Tài khoản đã tồn tại !</center>';
+//         }elseif($password === $repassword){
+//             $pw_hash = password_hash($password, PASSWORD_DEFAULT);
+//             $update = "INSERT INTO danhsach_kh (username,email,phonenumber,password, role, fullname) 
+//             VALUES ('$username', '$email', '$phonenumber', '$pw_hash', '$loai', '$fullname')";
+//             $query = mysqli_query($connect, $update);
+//             $alert = '<center class="text-success">Đã đăng ký thành công!</center>';
+//             $_SESSION['message'] = $alert;
+//             header('location: ../login/Dangnhap.php');
 
-        } else {
-            $alert = '<center class="text-danger">Nhập lại mật khẩu chưa trùng!</center>';
-        }
-    } else {
-        $alert = '<center class="text-danger col-sm-12">Vui lòng nhập đủ thông tin !</center>';
-    }
-}
+//         } else {
+//             $alert = '<center class="text-danger">Nhập lại mật khẩu chưa trùng!</center>';
+//         }
+//     } else {
+//         $alert = '<center class="text-danger col-sm-12">Vui lòng nhập đủ thông tin !</center>';
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +110,7 @@ if (isset($_POST["dangky"])) {
 <body>
     <div class="left">
         <div class="back" title="Trở về trang chủ">
-            <a href="../index.php"><img src="../img/back.png" style="width:50px"alt=""></a>
+            <a href="../index.php <?php unset($_SESSION['message']); ?>"><img src="../img/back.png" style="width:50px"alt=""></a>
         </div>
         <div class="" style="padding:0 100px">
             <center><img src="../img/logo.png?v=1" style="width:250px" alt="logo"></center>
@@ -126,7 +126,7 @@ if (isset($_POST["dangky"])) {
             <div class="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
               <div class="col-sm-12 border border-success shadow rounded pt-2">
                 <!-- <div class="text-center"><img src="https://placehold.it/80x80" class="rounded-circle border p-1"></div> -->
-                <form action="" class="login-form" method="post">
+                <form action="../login/xuly.php" class="login-form" method="post">
                     <div class="form-group">
                         <input name="username" type="text" class="form-control rounded-left" placeholder="Nhập tài khoản" required>
                     </div>
@@ -134,6 +134,11 @@ if (isset($_POST["dangky"])) {
                         <input name="password" type="password" class="form-control rounded-left" placeholder="Nhập mật khẩu" required>
                     </div>
                     <?= $alert ?? '' ?>
+                    <?php 
+                    if(isset($_SESSION['message'])){
+                        echo $_SESSION['message'];
+                      }
+                    ?>
                     <div class="form-group d-md-flex">
                         <div class="w-50">
                             <input type="checkbox" checked>
@@ -145,11 +150,6 @@ if (isset($_POST["dangky"])) {
                             <a href="Dangki.php">Bạn chưa có tài khoản ?</a>
                         </div> -->
                     </div>
-                    <?php 
-                    if(isset($_SESSION['message'])){
-                        echo $_SESSION['message'];
-                      }
-                    ?>
                     <div class="form-group">
                         <button name="dangnhap" type="submit" class="btn btn-success rounded submit p-3 px-5">Đăng nhập</button>
                     </div>
@@ -159,7 +159,7 @@ if (isset($_POST["dangky"])) {
             <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
               <div class="col-sm-12 border border-success shadow rounded pt-2">
                 <!-- <div class="text-center"><img src="https://placehold.it/80x80" class="rounded-circle border p-1"></div> -->
-                <form class="form-horizontal" role="form" method="post">
+                <form href="../login/xuly.php"class="form-horizontal" role="form" method="post">
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <input name="fullname" type="text" id="firstName" placeholder="Họ tên quý khách" class="form-control" autofocus>

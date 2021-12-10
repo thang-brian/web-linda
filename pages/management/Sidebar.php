@@ -51,15 +51,21 @@
                 <a class="dropdown-item" href="index.php?quanly=management&page=tinban">Tin bán & cho thuê</a>
                 <a class="dropdown-item" href="#">Tin cần mua & cần thuê</a>
             </div>
-            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="collapse" href="#collapse2" role="tab" aria-controls="profile">
                 <i class="fas fa-file-invoice-dollar"></i> Quản lý tài chính
             </a>
+            <div class="collapse" id="collapse2">
+                <a class="dropdown-item" href="index.php?quanly=management&page=lsgiaodich">Lịch sử giao dịch</a>
+            </div>
             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
                 <i class="fas fa-book"></i> Hướng dẫn
             </a>
-            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="collapse" href="#collapse4" role="tab" aria-controls="settings">
                 <i class="fas fa-lock"></i> Thông tin cá nhân
             </a>
+            <div class="collapse" id="collapse4">
+                <a class="dropdown-item" href="index.php?quanly=management&page=tdmatkhau">Thay đổi mật khẩu</a>
+            </div>
             </div>
         </div>
     </div>

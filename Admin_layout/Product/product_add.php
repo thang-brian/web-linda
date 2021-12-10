@@ -9,6 +9,13 @@ if (isset($_POST["submit"])) {
     $status = $_POST["status"];
     $price = $_POST["price"];
     $top = $_POST["top"];
+    $size = $_POST["size"];
+    $mota = $_POST["mota"];
+    $loai = $_POST["loai"];
+    $PhNgu = $_POST["PhNgu"];
+    $PhTam = $_POST["PhTam"];
+    $PhBep = $_POST["PhBep"];
+    $Kho = $_POST["Kho"];
     $alert = "";
 
     if (isset($_POST["accept"])) {
@@ -20,7 +27,7 @@ if (isset($_POST["submit"])) {
             // echo $img_tmp;
             move_uploaded_file($img_tmp, '../img/' . $img);
             // echo $s;
-            $sql = "INSERT INTO danhsach_sp (Name, Status, Price, Image, Top) VALUES ('$name', '$status', '$price', '$img', '$top')";
+            $sql = "INSERT INTO danhsach_sp (Name, Status, Price, Image,loai,mota, Top, size , PhNgu , PhTam , PhBep , Kho ) VALUES ('$name', '$status', '$price', '$img','$loai','$mota', '$top','$size', '$PhNgu','$PhTam','$PhBep', '$Kho')";
             $query = mysqli_query($connect, $sql);
             $alert = '<center class="alert alert-success mt-3 add-sp">Thêm sản phẩm thành công !</center>';
         } else {
@@ -51,6 +58,20 @@ if (isset($_POST["submit"])) {
             <input type="text" name="price" class="form-control" placeholder="Nhập giá thành sản phẩm" required>
         </div>
         <div class="form-group">
+            <label>Loại :</label>
+            <select name="loai" id="">
+                <option value="Dự án" class="active">Dự án</option>
+                <option value="Mua">Mua</option>
+                <option value="Thuê">Thuê</option>
+            </select>
+            
+        </div>
+        <div class="form-group">
+            <label>Mô tả</label>
+            <textarea name="mota" class="form-control"rows="3">
+            </textarea>
+        </div>
+        <div class="form-group">
             <label>Top sản phẩm :</label>
             <select name="top" id="">
                 <option value="0" class="active">0</option>
@@ -62,6 +83,26 @@ if (isset($_POST["submit"])) {
         <div class="form-group mb-4">
             <label>Ảnh mô tả: </label>
             <input type="file" name="img_upload" required>
+        </div>
+        <div class="form-group">
+            <label>Kích thước</label>
+            <input type="text" name="size" class="form-control" id="exampleInputPassword1"  >
+        </div>
+        <div class="form-group">
+            <label>Phòng Ngủ</label>
+            <input type="text" name="PhNgu" class="form-control" id="exampleInputPassword1" `>
+        </div>
+        <div class="form-group">
+            <label>Phòng tắm</label>
+            <input type="text" name="PhTam" class="form-control" id="exampleInputPassword1"  >
+        </div>
+        <div class="form-group">
+            <label>Phòng bếp</label>
+            <input type="text" name="PhBep" class="form-control" id="exampleInputPassword1" `>
+        </div>
+        <div class="form-group">
+            <label>Kho</label>
+            <input type="text" name="Kho" class="form-control" id="exampleInputPassword1" ` >
         </div>
         <div class="form-group mb-0">
             <div class="custom-control custom-checkbox">

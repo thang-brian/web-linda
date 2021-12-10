@@ -22,6 +22,7 @@
 <body>
 
     <?php
+    session_start();
     include "public/main.php";
     include "pages/Footer.php";
     include "connecting/script.php";

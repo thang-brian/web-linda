@@ -1,0 +1,49 @@
+div>span{
+    font-size: 25px;
+}
+.color{
+    background-color: white;
+}
+
+#red {
+    color: red;
+}
+
+.btn-info{
+    height: auto;
+}
+
+.btn-success{
+    height: auto;
+}
+
+.btn-danger{
+    height: auto;
+}
+
+.btn-warning{
+    height: auto;
+}
+
+.ti-trash{
+    font-size: 30px;
+}
+
+.search-txt{
+    width: 850px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: column;
+}
+
+.ti-reload{
+    font-size: 25px;
+    margin: 4px;
+}
+
+.row{
+    text-align: center;
+    margin-top: 1%;
+}

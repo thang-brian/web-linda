@@ -10,20 +10,37 @@ if (isset($_POST["submit"])) {
     $status = $_POST["status"];
     $price = $_POST["price"];
     $top = $_POST["top"];
+    $loai = $_POST["loai"];
+    $mota = $_POST["mota"];
+    $size = $_POST["size"];
+    $PhNgu = $_POST["PhNgu"];
+    $PhTam = $_POST["PhTam"];
+    $PhBep = $_POST["PhBep"];
+    $Kho = $_POST["Kho"];
     $alert = "";
 
     if (isset($_POST["accept"])) {
         $imgName = $_FILES['img_up']['name'];
         $imgPath = $_FILES['img_up']['tmp_name'];
         // echo $imgPath;
-
-        if (isset($name) && isset($status) && isset($price) && isset($_FILES['img_up'])) {
-
+        if (isset($name)) {
+            if(($_FILES['img_up']['name']) == ''){
+                $sql = "UPDATE danhsach_sp SET Name = '$name', Status = '$status', Price = '$price',loai = '$loai',mota = '$mota', Top = '$top', size = '$size', PhNgu = '$PhNgu', PhTam = '$PhTam', PhBep = '$PhBep', Kho = '$Kho' WHERE ID = '$id_sp'";
+                $query = mysqli_query($connect, $sql);
+                $alert = '<center class="alert alert-success mt-3 add-sp">Cập nhật thành công !</center>';
+            }else{
+                //xoa hinh anh cu
+                $sql = "SELECT * FROM danhsach_sp WHERE id = '$id_sp' LIMIT 1";
+                $query = mysqli_query($connect,$sql);
+                while($row = mysqli_fetch_array($query)){
+                    unlink('../img/'.$row['Image']);
+                }
             move_uploaded_file($imgPath, '../img/' . $imgName);
-            $sql = "UPDATE danhsach_sp SET Name = '$name', Status = '$status', Price = '$price', Image = '$imgName', Top = '$top' WHERE ID = '$id_sp'";
+            $sql = "UPDATE danhsach_sp SET Name = '$name', Status = '$status', Price = '$price', Image = '$imgName',loai = '$loai',mota = '$mota', Top = '$top', size = '$size', PhNgu = '$PhNgu', PhTam = '$PhTam', PhBep = '$PhBep', Kho = '$Kho' WHERE ID = '$id_sp'";
             $query = mysqli_query($connect, $sql);
             $alert = '<center class="alert alert-success mt-3 add-sp">Cập nhật thành công !</center>';
-        } else {
+        }
+        }else{
             $alert = '<center class="alert alert-danger mt-3">Mời điền đủ thông tin sản phẩm !</center>';
         }
     } else {
@@ -48,7 +65,42 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="form-group">
             <label>Giá thành sản phẩm</label>
-            <input type="text" name="price" class="form-control" id="exampleInputPassword1" value="<?= $row["Price"] ?>" ` required>
+            <input type="text" name="price" class="form-control" id="exampleInputPassword1" value="<?= $row["Price"] ?>" >
+        </div>
+        <div class="form-group">
+            <label>Mô tả</label>
+            <textarea name="mota" class="form-control"rows="3">
+            <?= $row["mota"] ?>
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label>Loại :</label>
+            <select name="loai" id="">
+                <option value="Dự án" class="active">Dự án</option>
+                <option value="Mua">Mua</option>
+                <option value="Thuê">Thuê</option>
+            </select>
+            
+        </div>
+        <div class="form-group">
+            <label>Kích thước</label>
+            <input type="text" name="size" class="form-control" id="exampleInputPassword1" value="<?= $row["size"] ?>" ` >
+        </div>
+        <div class="form-group">
+            <label>Phòng Ngủ</label>
+            <input type="text" name="PhNgu" class="form-control" id="exampleInputPassword1" value="<?= $row["PhNgu"] ?>" `>
+        </div>
+        <div class="form-group">
+            <label>Phòng tắm</label>
+            <input type="text" name="PhTam" class="form-control" id="exampleInputPassword1" value="<?= $row["PhTam"] ?>" >
+        </div>
+        <div class="form-group">
+            <label>Phòng bếp</label>
+            <input type="text" name="PhBep" class="form-control" id="exampleInputPassword1" value="<?= $row["PhBep"] ?>" `>
+        </div>
+        <div class="form-group">
+            <label>Kho</label>
+            <input type="text" name="Kho" class="form-control" id="exampleInputPassword1" value="<?= $row["Kho"] ?>" ` >
         </div>
         <div class="form-group">
             <label>Top sản phẩm :</label>
