@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 02, 2021 lúc 04:45 AM
+-- Thời gian đã tạo: Th12 10, 2021 lúc 10:45 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.3.29
 
@@ -85,8 +85,8 @@ CREATE TABLE `danhsach_kh` (
 --
 
 INSERT INTO `danhsach_kh` (`ID`, `username`, `email`, `phonenumber`, `password`, `role`, `fullname`, `is_vip`) VALUES
-(7, 'admin', '', '0', '$2a$10$Vhr5bBfr//HQ4h4tg93yu.WGIKDrGNZgoLPtijIS7uYTjojPkdk1a', 0, 'Admin', 0),
-(11, 'test', 'test@mail', '123', '$2y$10$SFh1tI2ZGt1StvQdtUrzeuRg5jenL69KMyrOU.BhY6CAHEdK5grvC', 1, 'Test', 0);
+(7, 'admin', '', '0', '$2y$10$VWBGIqfiNxLfB00JOy7./u/4nhNmsHH/PLeUDIbz5NbF8QAiLWXsS', 0, 'Admin', 0),
+(11, 'test', 'test@mail', '123', '$2y$10$VWBGIqfiNxLfB00JOy7./u/4nhNmsHH/PLeUDIbz5NbF8QAiLWXsS', 1, 'Test', 0);
 
 -- --------------------------------------------------------
 
